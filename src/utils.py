@@ -236,8 +236,7 @@ def hmrw_embeddings(
     *,
     p: float = 1.0,
     q: float = 1.0,
-    p_edge: float = 1.0,
-    q_edge: float = 1.0,
+    r: float = 1.0,
     num_walks: int = 10,
     walk_length: int = 80,
     window: int = 10,
@@ -304,11 +303,11 @@ def hmrw_embeddings(
                     if prev_e_i is None or prev_u_i is None:
                         a_edge = 1.0
                     elif e2_i == prev_e_i:
-                        a_edge = 1.0 / p_edge
+                        a_edge = 1.0 / p
                     elif nodes[prev_u_i] in e2:
                         a_edge = 1.0
                     else:
-                        a_edge = 1.0 / q_edge
+                        a_edge = 1.0 / q
                     raw_e[k] = a_edge / len(e2)  # h(v,e')=1 since e' incident to v
 
                 s_e = raw_e.sum()
@@ -328,12 +327,10 @@ def hmrw_embeddings(
                         continue
                     if prev_u_i is None:
                         a_node = 1.0
-                    elif x_i == prev_u_i or x_i == v_i:
-                        a_node = 1.0 / p
                     elif prev_e_nodes is not None and nodes[x_i] in prev_e_nodes:
                         a_node = 1.0
                     else:
-                        a_node = 1.0 / q
+                        a_node = 1.0 / r
                     raw_x[k] = a_node * (1.0 / d[x_i])  # h(x,e')=1 for x in e'
 
                 s_x = raw_x.sum()
