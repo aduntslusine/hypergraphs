@@ -45,9 +45,12 @@ def hyper2vec_embeddings(
 
     # --- Weighted vertex degree d(v) = sum of w(e) over hyperedges incident to v (paper §2)
     d = np.zeros(n, dtype=float)
-    for e, w in zip(edges, w_e):
+    inc_edges = [[] for _ in range(n)]  # incident edge ids for each node index
+    for e_i, (e, w) in enumerate(zip(edges, w_e)):
         for u in e:
-            d[idx[u]] += float(w)
+            i = idx[u]
+            d[i] += float(w)
+            inc_edges[i].append(e_i)
 
     # --- For 2nd-order factor α: "same hyperedge as u" = co-membership with previous node
     #     (Eq. 2: cheap to test via co[u] rather than scanning edges each time)
@@ -56,6 +59,24 @@ def hyper2vec_embeddings(
         ids = [idx[u] for u in e]
         for i in ids:
             co[i].update(ids)
+
+    # --- π1 support and values by current node v:
+    #     only nodes sharing at least one hyperedge with v can have non-zero π1.
+    #     cache each row once to avoid scanning all nodes every step.
+    pi1_cache = [dict() for _ in range(n)]  # v_i -> {x_i: pi1(x|v)}
+    for v_i in range(n):
+        vd = d[v_i]
+        if vd <= 0:
+            continue
+        accum: dict[int, float] = {}
+        for e_i in inc_edges[v_i]:
+            e = edges[e_i]
+            w = float(w_e[e_i])
+            contrib = w / len(e)
+            for x in e:
+                x_i = idx[x]
+                accum[x_i] = accum.get(x_i, 0.0) + contrib
+        pi1_cache[v_i] = {x_i: val / vd for x_i, val in accum.items() if val > 0.0}
 
     rng = np.random.default_rng(seed)
     walks: list[list[int]] = []
@@ -69,19 +90,14 @@ def hyper2vec_embeddings(
                 # u = previous vertex, v = current; first step has no u → only 1st-order + degree bias
                 u_i = walk[-2] if len(walk) > 1 else None
                 v_i = walk[-1]
-                vn, vd = nodes[v_i], d[v_i]  # node id, hypergraph weighted degree
+                vd = d[v_i]
                 raw = np.zeros(n, dtype=float)
 
-                for x_i in range(n):
+                # Restrict candidates to co-membership neighbors of current node.
+                for x_i in co[v_i]:
                     # π₁(x|v): pick incident hyperedge (weight w), then uniform endpoint on that edge (Eq. 1).
                     # Here we sum over hyperedges e containing both v and x: (w(e)/d(v))·(1/|e|).
-                    pi1 = 0.0
-                    if vd > 0:
-                        xn = nodes[x_i]
-                        for e, w in zip(edges, w_e):
-                            if vn in e and xn in e:
-                                pi1 += float(w) / len(e)
-                        pi1 /= vd
+                    pi1 = pi1_cache[v_i].get(x_i, 0.0)
                     if pi1 <= 0:
                         continue
 
