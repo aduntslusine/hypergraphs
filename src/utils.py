@@ -334,7 +334,8 @@ def hmrw_embeddings(
 
                 # --- Stage 2: choose next node x in e'.
                 e2 = edges[next_e_i]
-                cand_x = [idx[x] for x in e2]
+                # cand_x = [idx[x] for x in e2]
+                cand_x= [idx[x] for x in e2 if idx[x] != v_i]
                 raw_x = np.zeros(len(cand_x), dtype=float)
                 prev_e_nodes = edges[prev_e_i] if prev_e_i is not None else None
 
@@ -350,10 +351,11 @@ def hmrw_embeddings(
                     raw_x[k] = a_node * (1.0 / d[x_i])  # h(x,e')=1 for x in e'
 
                 s_x = raw_x.sum()
-                if s_x <= 0 or not np.isfinite(s_x):
-                    x_i = v_i
-                else:
-                    x_i = cand_x[int(rng.choice(len(cand_x), p=raw_x / s_x))]
+                # if s_x <= 0 or not np.isfinite(s_x):
+                #     x_i = v_i
+                # else:
+                #     x_i = cand_x[int(rng.choice(len(cand_x), p=raw_x / s_x))]
+                x_i = cand_x[int(rng.choice(len(cand_x), p=raw_x / s_x))]
 
                 # Advance walk memory: (u,v,e) <- (v,x,e').
                 prev_u_i = v_i
@@ -379,7 +381,7 @@ def hmrw_embeddings(
         sg=1,
         workers=workers,
         seed=seed if seed is not None else 0,
-        epochs=5,
+        epochs=20,
     )
 
     out = np.zeros((n, dim), dtype=float)
