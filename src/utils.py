@@ -253,6 +253,7 @@ def hmrw_embeddings(
     p: float = 1.0,
     q: float = 1.0,
     r: float = 1.0,
+    gamma: float = -1.0,
     num_walks: int = 10,
     walk_length: int = 80,
     window: int = 10,
@@ -320,11 +321,12 @@ def hmrw_embeddings(
                         a_edge = 1.0
                     elif e2_i == prev_e_i:
                         a_edge = 1.0 / p
-                    elif nodes[prev_u_i] in e2:
+                    elif len((edges[prev_e_i] - {nodes[v_i]}) & (e2 - {nodes[v_i]})) > 0:
                         a_edge = 1.0
                     else:
                         a_edge = 1.0 / q
-                    raw_e[k] = a_edge / len(e2)  # h(v,e')=1 since e' incident to v
+                    size_term = max(len(e2) - 1, 1)
+                    raw_e[k] = a_edge * (size_term ** gamma)  # h(v,e')=1 since e' incident to v
 
                 s_e = raw_e.sum()
                 if s_e <= 0 or not np.isfinite(s_e):
