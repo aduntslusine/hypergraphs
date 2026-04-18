@@ -254,6 +254,7 @@ def hmrw_embeddings(
     q: float = 1.0,
     r: float = 1.0,
     gamma: float = -1.0,
+    delta: float = 0.0,
     num_walks: int = 10,
     walk_length: int = 80,
     window: int = 10,
@@ -268,8 +269,12 @@ def hmrw_embeddings(
     - Keep state (u, v, e): previous node u, current node v, previous hyperedge e.
     - Stage 1: sample next hyperedge e' incident to v with
       pi(e'|e,u,v) ∝ a_edge(e',e,u) * h(v,e') / |e'|.
-    - Stage 2: sample next node x in e' with
-      pi(x|e',v,e,u) ∝ a_node(x,e,u) * h(x,e') / d(x).
+      Hyperedge size bias: terms are multiplied by ``max(|e'|-1, 1) ** gamma`` (same as before).
+    - Stage 2: sample next node x in e' with unnormalized weight
+      ``a_node(x,e,u) * max(d(x),1) ** delta`` (only ``a_node`` when ``delta=0``, so degree
+      is ignored by default). Larger ``delta`` favors higher-degree endpoints; negative
+      ``delta`` favors lower-degree endpoints—analogous to ``gamma`` on hyperedge sizes
+      in stage 1.
     ``num_walks`` is the number of walks **per node**.
     """
     nodes = sorted(hg.get_nodes())
@@ -350,7 +355,8 @@ def hmrw_embeddings(
                         a_node = 1.0
                     else:
                         a_node = 1.0 / r
-                    raw_x[k] = a_node * (1.0 / d[x_i])  # h(x,e')=1 for x in e'
+                    deg_base = max(float(d[x_i]), 1.0)
+                    raw_x[k] = a_node * (deg_base**delta)
 
                 s_x = raw_x.sum()
                 # if s_x <= 0 or not np.isfinite(s_x):
