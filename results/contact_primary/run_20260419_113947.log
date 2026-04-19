@@ -1,0 +1,91 @@
+
+===== start 2026-04-19T11:39:47.037503 =====
+data_name='contact_primary' graph_path='../www21-hyperlap-master/dataset/contact-primary_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/contact-primary_graph.txt
+|V|= 242  |E|= 12704
+Loaded splits from results/contact_primary/splits_10perc_20splits.pkl
+Already have 399 rows in results/contact_primary/hedge_prediction_10perc_20splits.csv
+Hyper2Vec 1 fold=19 AUC=0.8501 AP=0.8881
+Hyper2Vec 2 fold=0 AUC=0.8553 AP=0.8847
+Hyper2Vec 2 fold=1 AUC=0.8560 AP=0.8846
+Hyper2Vec 2 fold=2 AUC=0.8536 AP=0.8894
+Hyper2Vec 2 fold=3 AUC=0.8645 AP=0.8968
+Hyper2Vec 2 fold=4 AUC=0.8641 AP=0.8928
+Hyper2Vec 2 fold=5 AUC=0.8582 AP=0.8907
+Hyper2Vec 2 fold=6 AUC=0.8525 AP=0.8859
+Hyper2Vec 2 fold=7 AUC=0.8617 AP=0.8954
+Hyper2Vec 2 fold=8 AUC=0.8562 AP=0.8850
+Hyper2Vec 2 fold=9 AUC=0.8585 AP=0.8894
+Hyper2Vec 2 fold=10 AUC=0.8673 AP=0.8994
+Hyper2Vec 2 fold=11 AUC=0.8632 AP=0.8937
+Hyper2Vec 2 fold=12 AUC=0.8568 AP=0.8887
+Hyper2Vec 2 fold=13 AUC=0.8589 AP=0.8886
+Hyper2Vec 2 fold=14 AUC=0.8528 AP=0.8870
+Hyper2Vec 2 fold=15 AUC=0.8603 AP=0.8941
+Hyper2Vec 2 fold=16 AUC=0.8665 AP=0.8976
+Hyper2Vec 2 fold=17 AUC=0.8632 AP=0.8915
+Hyper2Vec 2 fold=18 AUC=0.8665 AP=0.8937
+Hyper2Vec 2 fold=19 AUC=0.8662 AP=0.8968
+Hyper2Vec 3 fold=0 AUC=0.8561 AP=0.8868
+Hyper2Vec 3 fold=1 AUC=0.8574 AP=0.8860
+Hyper2Vec 3 fold=2 AUC=0.8505 AP=0.8866
+Hyper2Vec 3 fold=3 AUC=0.8573 AP=0.8910
+Hyper2Vec 3 fold=4 AUC=0.8557 AP=0.8871
+Hyper2Vec 3 fold=5 AUC=0.8524 AP=0.8857
+Hyper2Vec 3 fold=6 AUC=0.8563 AP=0.8869
+Hyper2Vec 3 fold=7 AUC=0.8499 AP=0.8876
+Hyper2Vec 3 fold=8 AUC=0.8498 AP=0.8810
+Hyper2Vec 3 fold=9 AUC=0.8517 AP=0.8850
+Hyper2Vec 3 fold=10 AUC=0.8664 AP=0.8967
+Hyper2Vec 3 fold=11 AUC=0.8546 AP=0.8856
+Hyper2Vec 3 fold=12 AUC=0.8554 AP=0.8855
+Hyper2Vec 3 fold=13 AUC=0.8512 AP=0.8841
+Hyper2Vec 3 fold=14 AUC=0.8449 AP=0.8820
+Hyper2Vec 3 fold=15 AUC=0.8522 AP=0.8881
+Hyper2Vec 3 fold=16 AUC=0.8572 AP=0.8877
+Hyper2Vec 3 fold=17 AUC=0.8478 AP=0.8808
+Hyper2Vec 3 fold=18 AUC=0.8512 AP=0.8845
+Hyper2Vec 3 fold=19 AUC=0.8538 AP=0.8916
+Hyper2Vec 4 fold=0 AUC=0.8378 AP=0.8740
+Hyper2Vec 4 fold=1 AUC=0.8405 AP=0.8711
+Hyper2Vec 4 fold=2 AUC=0.8393 AP=0.8751
+Hyper2Vec 4 fold=3 AUC=0.8449 AP=0.8847
+Hyper2Vec 4 fold=4 AUC=0.8421 AP=0.8772
+Hyper2Vec 4 fold=5 AUC=0.8432 AP=0.8773
+Hyper2Vec 4 fold=6 AUC=0.8398 AP=0.8731
+Hyper2Vec 4 fold=7 AUC=0.8394 AP=0.8794
+Hyper2Vec 4 fold=8 AUC=0.8389 AP=0.8701
+Hyper2Vec 4 fold=9 AUC=0.8443 AP=0.8777
+Hyper2Vec 4 fold=10 AUC=0.8596 AP=0.8929
+Hyper2Vec 4 fold=11 AUC=0.8461 AP=0.8795
+Hyper2Vec 4 fold=12 AUC=0.8368 AP=0.8711
+Hyper2Vec 4 fold=13 AUC=0.8408 AP=0.8756
+Hyper2Vec 4 fold=14 AUC=0.8386 AP=0.8765
+Hyper2Vec 4 fold=15 AUC=0.8394 AP=0.8782
+Hyper2Vec 4 fold=16 AUC=0.8433 AP=0.8775
+Hyper2Vec 4 fold=17 AUC=0.8470 AP=0.8805
+Hyper2Vec 4 fold=18 AUC=0.8377 AP=0.8725
+Hyper2Vec 4 fold=19 AUC=0.8469 AP=0.8855
+Hyper2Vec 5 fold=0 AUC=0.8517 AP=0.8822
+Hyper2Vec 5 fold=1 AUC=0.8460 AP=0.8744
+Hyper2Vec 5 fold=2 AUC=0.8587 AP=0.8911
+Hyper2Vec 5 fold=3 AUC=0.8609 AP=0.8908
+Hyper2Vec 5 fold=4 AUC=0.8660 AP=0.8925
+Hyper2Vec 5 fold=5 AUC=0.8597 AP=0.8905
+Hyper2Vec 5 fold=6 AUC=0.8512 AP=0.8821
+Hyper2Vec 5 fold=7 AUC=0.8600 AP=0.8930
+Hyper2Vec 5 fold=8 AUC=0.8567 AP=0.8870
+Hyper2Vec 5 fold=9 AUC=0.8577 AP=0.8876
+Hyper2Vec 5 fold=10 AUC=0.8634 AP=0.8964
+Hyper2Vec 5 fold=11 AUC=0.8550 AP=0.8868
+Hyper2Vec 5 fold=12 AUC=0.8547 AP=0.8841
+Hyper2Vec 5 fold=13 AUC=0.8568 AP=0.8856
+Hyper2Vec 5 fold=14 AUC=0.8522 AP=0.8854
+Hyper2Vec 5 fold=15 AUC=0.8583 AP=0.8900
+Hyper2Vec 5 fold=16 AUC=0.8543 AP=0.8858
+Hyper2Vec 5 fold=17 AUC=0.8583 AP=0.8868
+Hyper2Vec 5 fold=18 AUC=0.8577 AP=0.8892
+Hyper2Vec 5 fold=19 AUC=0.8672 AP=0.8972
+Done. Wrote results/contact_primary/hedge_prediction_10perc_20splits.csv
+
+===== end 2026-04-19T11:59:15.388507 =====

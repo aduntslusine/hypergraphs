@@ -1,0 +1,50 @@
+
+===== start 2026-04-19T15:01:58.717070 =====
+data_name='contact_primary' graph_path='../www21-hyperlap-master/dataset/email-Eu-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/email-Eu-full_graph.txt
+|V|= 986  |E|= 24520
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 0 seed=0 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 1 seed=1 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 2 seed=2 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 3 seed=3 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 4 seed=4 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 5 seed=5 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 6 seed=6 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 7 seed=7 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 8 seed=8 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 9 seed=9 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 10 seed=10 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 11 seed=11 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 12 seed=12 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 13 seed=13 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 14 seed=14 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 15 seed=15 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 16 seed=16 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 17 seed=17 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 18 seed=18 |E|_train=22068 pos=2452 neg=2452
+Achieved test ratio: 0.1000 (2452 / 24520 hyperedges held out)
+  fold 19 seed=19 |E|_train=22068 pos=2452 neg=2452
+Saved splits to results/contact_primary/splits_10perc_20splits.pkl
+Already have 480 rows in results/contact_primary/hedge_prediction_10perc_20splits_10nw_50wl.csv
+Done. Wrote results/contact_primary/hedge_prediction_10perc_20splits_10nw_50wl.csv
+
+===== end 2026-04-19T15:58:32.230191 =====

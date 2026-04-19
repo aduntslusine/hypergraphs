@@ -3,3 +3,65 @@
 data_name='contact_primary' graph_path='../www21-hyperlap-master/dataset/contact-primary_graph.txt' test_ratio=0.1 n_splits=20
 Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/contact-primary_graph.txt
 |V|= 242  |E|= 12704
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 0 seed=0 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 1 seed=1 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 2 seed=2 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 3 seed=3 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 4 seed=4 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 5 seed=5 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 6 seed=6 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 7 seed=7 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 8 seed=8 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 9 seed=9 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 10 seed=10 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 11 seed=11 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 12 seed=12 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 13 seed=13 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 14 seed=14 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 15 seed=15 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 16 seed=16 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 17 seed=17 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 18 seed=18 |E|_train=11434 pos=1270 neg=1270
+Achieved test ratio: 0.1000 (1270 / 12704 hyperedges held out)
+  fold 19 seed=19 |E|_train=11434 pos=1270 neg=1270
+Saved splits to results/contact_primary/splits_10perc_20splits.pkl
+Already have 0 rows in results/contact_primary/hedge_prediction_10perc_20splits.csv
+HMRW 0 fold=0 AUC=0.8457 AP=0.8692
+HMRW 0 fold=1 AUC=0.8539 AP=0.8758
+HMRW 0 fold=2 AUC=0.8523 AP=0.8779
+HMRW 0 fold=3 AUC=0.8634 AP=0.8881
+HMRW 0 fold=4 AUC=0.8615 AP=0.8841
+HMRW 0 fold=5 AUC=0.8656 AP=0.8863
+HMRW 0 fold=6 AUC=0.8452 AP=0.8702
+HMRW 0 fold=7 AUC=0.8550 AP=0.8817
+HMRW 0 fold=8 AUC=0.8558 AP=0.8819
+HMRW 0 fold=9 AUC=0.8583 AP=0.8780
+HMRW 0 fold=10 AUC=0.8685 AP=0.8877
+HMRW 0 fold=11 AUC=0.8479 AP=0.8663
+HMRW 0 fold=12 AUC=0.8589 AP=0.8726
+HMRW 0 fold=13 AUC=0.8490 AP=0.8828
+HMRW 0 fold=14 AUC=0.8478 AP=0.8767
+HMRW 0 fold=15 AUC=0.8561 AP=0.8831
+HMRW 0 fold=16 AUC=0.8593 AP=0.8829
+HMRW 0 fold=17 AUC=0.8468 AP=0.8736
+HMRW 0 fold=18 AUC=0.8493 AP=0.8706
+HMRW 0 fold=19 AUC=0.8638 AP=0.8895

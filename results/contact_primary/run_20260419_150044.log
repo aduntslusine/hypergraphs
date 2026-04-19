@@ -1,0 +1,5 @@
+
+===== start 2026-04-19T15:00:44.818597 =====
+data_name='contact_primary' graph_path='../www21-hyperlap-master/dataset/email-Eu-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/email-Eu-full_graph.txt
+|V|= 986  |E|= 24520

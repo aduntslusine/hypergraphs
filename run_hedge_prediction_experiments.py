@@ -32,7 +32,8 @@ from src.hypergraph_train_test_split import (
 from src.utils import hmrw_embeddings, hyper2vec_embeddings
 
 NUM_WALKS = 10
-WALK_LENGTH = 100
+# WALK_LENGTH = 100
+WALK_LENGTH = 50
 DIM = 128
 
 CONFIGS_HMRW = [
@@ -142,7 +143,9 @@ def run_hedge_prediction(
     pct = int(round(test_ratio * 100))
     out_dir = Path("results") / data_name
     pkl_path = out_dir / f"splits_{pct}perc_{n_splits}splits.pkl"
-    csv_path = out_dir / f"hedge_prediction_{pct}perc_{n_splits}splits.csv"
+    csv_path = out_dir / f"hedge_prediction_{pct}perc_{n_splits}splits_{NUM_WALKS}nw_{WALK_LENGTH}wl.csv"
+    csv_wide_path = out_dir / f"hedge_prediction_{pct}perc_{n_splits}splits_{NUM_WALKS}nw_{WALK_LENGTH}wl_wide.csv"
+    
     graph_arg = str(graph)
 
     print("Loading graph:", graph.resolve())
@@ -348,8 +351,20 @@ def run_hedge_prediction(
         df["mean_auc"] = m["auc"]
         df["mean_ap"] = m["ap"]
         df.to_csv(csv_path, index=False)
+        
+        id_cols = ['method', 'config_id', 'p', 'q', 'r', 'gamma', 'delta', 'num_walks', 'walk_length', 'dim']
+        means = df.groupby(id_cols, dropna=False, as_index=False).agg(auc=('auc', 'mean'), ap=('ap', 'mean'))
+        wide = df.pivot_table(index=id_cols, columns='fold', values=['auc', 'ap'], aggfunc='first')
+        wide.columns = [f'{a}_fold{int(b)}' for a, b in wide.columns]
+        wide = wide.reset_index()
+        df_wide = means.merge(wide, on=id_cols, how='left')
+        
+        df_wide.to_csv(csv_wide_path, index=False)
+        
 
     print("Done. Wrote", csv_path)
+    
+
     if log_fp is not None:
         sys.stdout = old_out
         log_fp.write(f"\n===== end {datetime.now().isoformat()} =====\n")
@@ -360,8 +375,15 @@ def run_hedge_prediction(
 
 if __name__ == "__main__":
     _ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # run_hedge_prediction(
+    #     "contact_primary",
+    #     "../www21-hyperlap-master/dataset/contact-primary_graph.txt",
+    #     log_path=Path("results") / "contact_primary" / f"run_{_ts}.log",
+    # )
     run_hedge_prediction(
-        "contact_primary",
-        "../www21-hyperlap-master/dataset/contact-primary_graph.txt",
-        log_path=Path("results") / "contact_primary" / f"run_{_ts}.log",
+        "email-Eu-full",
+        "../www21-hyperlap-master/dataset/email-Eu-full_graph.txt",
+        log_path=Path("results") / "email-Eu-full" / f"run_{_ts}.log",
     )
+    
+    
