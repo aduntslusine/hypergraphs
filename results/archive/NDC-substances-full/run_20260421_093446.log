@@ -1,0 +1,8 @@
+
+===== start 2026-04-21T09:34:46.515645 =====
+data_name='NDC-substances-full' graph_path='../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-substances-full_graph.txt
+|V|= 3767  |E|= 6631
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 0 seed=0 |E|_train=5968 pos=663 neg=663

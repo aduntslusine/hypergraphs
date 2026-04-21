@@ -1,0 +1,50 @@
+
+===== start 2026-04-21T10:39:27.050431 =====
+data_name='NDC-substances-full' graph_path='../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-substances-full_graph.txt
+|V|= 3767  |E|= 6631
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 0 seed=0 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 1 seed=1 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 2 seed=2 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 3 seed=3 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 4 seed=4 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 5 seed=5 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 6 seed=6 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 7 seed=7 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 8 seed=8 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 9 seed=9 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 10 seed=10 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 11 seed=11 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 12 seed=12 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 13 seed=13 |E|_train=5968 pos=663 neg=663
+Connectivity constraint too strict for this hypergraph; continuing split without requiring a connected training hypergraph.
+Achieved test ratio: 0.1000 (663 / 6631 hyperedges held out)
+  fold 14 seed=14 |E|_train=5968 pos=663 neg=663

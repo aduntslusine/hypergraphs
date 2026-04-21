@@ -1,0 +1,5 @@
+
+===== start 2026-04-21T15:41:00.872277 =====
+data_name='tags-math' graph_path='../www21-hyperlap-master/dataset/tags-math_graph.txt' test_ratio=0.05 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/tags-math_graph.txt
+|V|= 1627  |E|= 169259

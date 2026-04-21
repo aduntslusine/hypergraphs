@@ -32,8 +32,8 @@ from src.hypergraph_train_test_split import (
 from src.utils import hmrw_embeddings, hyper2vec_embeddings
 
 NUM_WALKS = 10
-# WALK_LENGTH = 100
-WALK_LENGTH = 50
+WALK_LENGTH = 100
+# WALK_LENGTH = 50
 DIM = 128
 
 CONFIGS_HMRW = [
@@ -227,7 +227,10 @@ def run_hedge_prediction(
 
     # --- HMRW ---
     for i, cfg in enumerate(CONFIGS_HMRW):
-        dlt = cfg.get("delta", 0.0)
+        dlt = cfg["delta"]
+        if dlt != 0.0:
+            print(f"skipping: {cfg}")
+            continue
         for sp in splits:
             fold, seed = sp["fold"], sp["split_seed"]
             k = resume_key(
@@ -380,10 +383,34 @@ if __name__ == "__main__":
     #     "../www21-hyperlap-master/dataset/contact-primary_graph.txt",
     #     log_path=Path("results") / "contact_primary" / f"run_{_ts}.log",
     # )
+    # run_hedge_prediction(
+    #     "email-Eu-full",
+    #     "../www21-hyperlap-master/dataset/email-Eu-full_graph.txt",
+    #     log_path=Path("results") / "email-Eu-full" / f"run_{_ts}.log",
+    # )
+    # run_hedge_prediction(
+    #     "email-Enron-full",
+    #     "../www21-hyperlap-master/dataset/email-Enron-full_graph.txt",
+    #     log_path=Path("results") / "email-Enron-full" / f"run_{_ts}.log",
+    # )
+    # run_hedge_prediction(
+    #     "contact-high",
+    #     "../www21-hyperlap-master/dataset/contact-high_graph.txt",
+    #     log_path=Path("results") / "contact-high" / f"run_{_ts}.log",
+    # )
+    # run_hedge_prediction(
+    #     "NDC-classes-full",
+    #     "../www21-hyperlap-master/dataset/NDC-classes-full_graph.txt",
+    #     log_path=Path("results") / "NDC-classes-full" / f"run_{_ts}.log",
+    # )
+    # run_hedge_prediction(
+    #     "NDC-substances-full",
+    #     "../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt",
+    #     log_path=Path("results") / "NDC-substances-full" / f"run_{_ts}.log",
+    # )
     run_hedge_prediction(
-        "email-Eu-full",
-        "../www21-hyperlap-master/dataset/email-Eu-full_graph.txt",
-        log_path=Path("results") / "email-Eu-full" / f"run_{_ts}.log",
+        "tags-math",
+        "../www21-hyperlap-master/dataset/tags-math_graph.txt",
+        log_path=Path("results") / "tags-math" / f"run_{_ts}.log", test_ratio = 0.05
     )
-    
-    
+
