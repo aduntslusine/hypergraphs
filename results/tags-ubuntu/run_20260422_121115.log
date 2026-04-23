@@ -1,0 +1,5 @@
+
+===== start 2026-04-22T12:11:15.982951 =====
+data_name='tags-ubuntu' graph_path='../www21-hyperlap-master/dataset/tags-ubuntu_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/tags-ubuntu_graph.txt
+|V|= 3021  |E|= 145053

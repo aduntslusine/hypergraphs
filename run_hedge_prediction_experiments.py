@@ -150,7 +150,22 @@ def run_hedge_prediction(
 
     print("Loading graph:", graph.resolve())
     H = load_txt(graph)
-    print("|V|=", len(H.get_nodes()), " |E|=", len(H.get_edges()))
+    n_nodes_before = len(H.get_nodes())
+    n_edges_before = len(H.get_edges())
+    print("|V|=", n_nodes_before, " |E|=", n_edges_before)
+
+    # Ensure we run on the largest connected component when the input is disconnected.
+    largest_nodes = set(H.largest_component())
+    is_connected = len(largest_nodes) == n_nodes_before
+    if not is_connected:
+        H = H.subhypergraph_largest_component()
+        n_nodes_after = len(H.get_nodes())
+        n_edges_after = len(H.get_edges())
+        print(
+            "Graph is disconnected; using largest connected component: "
+            f"|V| {n_nodes_before} -> {n_nodes_after}, "
+            f"|E| {n_edges_before} -> {n_edges_after}"
+        )
 
     # --- splits: load or build ---
     splits = None
@@ -231,6 +246,8 @@ def run_hedge_prediction(
         if dlt != 0.0:
             print(f"skipping: {cfg}")
             continue
+        print(f"skipping: {cfg}")
+        continue
         for sp in splits:
             fold, seed = sp["fold"], sp["split_seed"]
             k = resume_key(
@@ -403,14 +420,19 @@ if __name__ == "__main__":
     #     "../www21-hyperlap-master/dataset/NDC-classes-full_graph.txt",
     #     log_path=Path("results") / "NDC-classes-full" / f"run_{_ts}.log",
     # )
-    # run_hedge_prediction(
-    #     "NDC-substances-full",
-    #     "../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt",
-    #     log_path=Path("results") / "NDC-substances-full" / f"run_{_ts}.log",
-    # )
     run_hedge_prediction(
-        "tags-math",
-        "../www21-hyperlap-master/dataset/tags-math_graph.txt",
-        log_path=Path("results") / "tags-math" / f"run_{_ts}.log", test_ratio = 0.05
+        "NDC-substances-full",
+        "../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt",
+        log_path=Path("results") / "NDC-substances-full" / f"run_{_ts}.log",
     )
+    # run_hedge_prediction(
+    #     "tags-math",
+    #     "../www21-hyperlap-master/dataset/tags-math_graph.txt",
+    #     log_path=Path("results") / "tags-math" / f"run_{_ts}.log", test_ratio = 0.01
+    # )
+    # run_hedge_prediction(
+    #     "tags-ubuntu",
+    #     "../www21-hyperlap-master/dataset/tags-ubuntu_graph.txt",
+    #     log_path=Path("results") / "tags-ubuntu" / f"run_{_ts}.log", test_ratio = 0.01
+    # )
 

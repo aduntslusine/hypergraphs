@@ -1,0 +1,27 @@
+
+===== start 2026-04-21T18:52:04.193489 =====
+data_name='NDC-classes-full' graph_path='../www21-hyperlap-master/dataset/NDC-classes-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-classes-full_graph.txt
+|V|= 1149  |E|= 1049
+Graph is disconnected; using largest connected component: |V| 1149 -> 628, |E| 1049 -> 796
+Loaded splits from results/NDC-classes-full/splits_10perc_20splits.pkl
+Already have 27 rows in results/NDC-classes-full/hedge_prediction_10perc_20splits_10nw_100wl.csv
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+skipping hmrw for now
+Hyper2Vec 0 fold=0 AUC=0.9933 AP=0.9936

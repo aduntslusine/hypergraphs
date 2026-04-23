@@ -1,0 +1,84 @@
+
+===== start 2026-04-21T18:12:28.607077 =====
+data_name='NDC-classes-full' graph_path='../www21-hyperlap-master/dataset/NDC-classes-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-classes-full_graph.txt
+|V|= 1149  |E|= 1049
+Graph is disconnected; using largest connected component: |V| 1149 -> 628, |E| 1049 -> 796
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 0 seed=0 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 1 seed=1 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 2 seed=2 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 3 seed=3 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 4 seed=4 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 5 seed=5 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 6 seed=6 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 7 seed=7 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 8 seed=8 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 9 seed=9 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 10 seed=10 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 11 seed=11 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 12 seed=12 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 13 seed=13 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 14 seed=14 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 15 seed=15 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 16 seed=16 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 17 seed=17 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 18 seed=18 |E|_train=717 pos=79 neg=79
+Achieved test ratio: 0.0992 (79 / 796 hyperedges held out)
+  fold 19 seed=19 |E|_train=717 pos=79 neg=79
+Saved splits to results/NDC-classes-full/splits_10perc_20splits.pkl
+Already have 0 rows in results/NDC-classes-full/hedge_prediction_10perc_20splits_10nw_100wl.csv
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 0.5, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 0.5, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 4.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 2.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+HMRW 9 fold=0 AUC=0.9962 AP=0.9962
+HMRW 9 fold=1 AUC=0.9947 AP=0.9940
+HMRW 9 fold=2 AUC=0.9998 AP=0.9998
+HMRW 9 fold=3 AUC=0.9962 AP=0.9958
+HMRW 9 fold=4 AUC=0.9931 AP=0.9910
+HMRW 9 fold=5 AUC=0.9970 AP=0.9970
+HMRW 9 fold=6 AUC=0.9921 AP=0.9916
+HMRW 9 fold=7 AUC=0.9987 AP=0.9988
+HMRW 9 fold=8 AUC=0.9998 AP=0.9998
+HMRW 9 fold=9 AUC=0.9998 AP=0.9998
+HMRW 9 fold=10 AUC=0.9905 AP=0.9942
+HMRW 9 fold=11 AUC=0.9979 AP=0.9978
+HMRW 9 fold=12 AUC=0.9984 AP=0.9983
+HMRW 9 fold=13 AUC=0.9987 AP=0.9987
+HMRW 9 fold=14 AUC=0.9909 AP=0.9909
+HMRW 9 fold=15 AUC=0.9992 AP=0.9992
+HMRW 9 fold=16 AUC=0.9968 AP=0.9968
+HMRW 9 fold=17 AUC=0.9989 AP=0.9990
+HMRW 9 fold=18 AUC=0.9965 AP=0.9970
+HMRW 9 fold=19 AUC=0.9872 AP=0.9833
+HMRW 10 fold=0 AUC=0.9965 AP=0.9966
+HMRW 10 fold=1 AUC=0.9958 AP=0.9955
+HMRW 10 fold=2 AUC=0.9987 AP=0.9988
+HMRW 10 fold=3 AUC=0.9955 AP=0.9950
+HMRW 10 fold=4 AUC=0.9944 AP=0.9930
+HMRW 10 fold=5 AUC=0.9963 AP=0.9964
+HMRW 10 fold=6 AUC=0.9920 AP=0.9922

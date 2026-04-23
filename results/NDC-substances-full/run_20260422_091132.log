@@ -1,0 +1,62 @@
+
+===== start 2026-04-22T09:11:32.591710 =====
+data_name='NDC-substances-full' graph_path='../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-substances-full_graph.txt
+|V|= 3767  |E|= 6631
+Graph is disconnected; using largest connected component: |V| 3767 -> 3414, |E| 6631 -> 6471
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 0 seed=0 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 1 seed=1 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 2 seed=2 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 3 seed=3 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 4 seed=4 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 5 seed=5 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 6 seed=6 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 7 seed=7 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 8 seed=8 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 9 seed=9 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 10 seed=10 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 11 seed=11 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 12 seed=12 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 13 seed=13 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 14 seed=14 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 15 seed=15 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 16 seed=16 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 17 seed=17 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 18 seed=18 |E|_train=5824 pos=647 neg=647
+Achieved test ratio: 0.1000 (647 / 6471 hyperedges held out)
+  fold 19 seed=19 |E|_train=5824 pos=647 neg=647
+Saved splits to results/NDC-substances-full/splits_10perc_20splits.pkl
+Already have 0 rows in results/NDC-substances-full/hedge_prediction_10perc_20splits_10nw_100wl.csv
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 0.5, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 0.5, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 4.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 2.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+HMRW 9 fold=0 AUC=0.9883 AP=0.9898
+HMRW 9 fold=1 AUC=0.9914 AP=0.9912
+HMRW 9 fold=2 AUC=0.9869 AP=0.9906
+HMRW 9 fold=3 AUC=0.9869 AP=0.9866
+HMRW 9 fold=4 AUC=0.9888 AP=0.9903

@@ -1,0 +1,36 @@
+
+===== start 2026-04-22T12:22:32.602114 =====
+data_name='NDC-substances-full' graph_path='../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-substances-full_graph.txt
+|V|= 3767  |E|= 6631
+Graph is disconnected; using largest connected component: |V| 3767 -> 3414, |E| 6631 -> 6471
+Loaded splits from results/NDC-substances-full/splits_10perc_20splits.pkl
+Already have 8 rows in results/NDC-substances-full/hedge_prediction_10perc_20splits_10nw_100wl.csv
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 0.5, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 0.5, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 4.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 2.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+HMRW 9 fold=8 AUC=0.9832 AP=0.9830
+HMRW 9 fold=9 AUC=0.9914 AP=0.9922
+HMRW 9 fold=10 AUC=0.9850 AP=0.9863
+HMRW 9 fold=11 AUC=0.9934 AP=0.9938
+HMRW 9 fold=12 AUC=0.9927 AP=0.9944
+HMRW 9 fold=13 AUC=0.9862 AP=0.9860
+HMRW 9 fold=14 AUC=0.9917 AP=0.9929
+HMRW 9 fold=15 AUC=0.9883 AP=0.9906
+HMRW 9 fold=16 AUC=0.9878 AP=0.9887
+HMRW 9 fold=17 AUC=0.9894 AP=0.9884
+HMRW 9 fold=18 AUC=0.9917 AP=0.9917
+HMRW 9 fold=19 AUC=0.9890 AP=0.9910
+HMRW 10 fold=0 AUC=0.9898 AP=0.9908
+HMRW 10 fold=1 AUC=0.9900 AP=0.9907
+HMRW 10 fold=2 AUC=0.9875 AP=0.9908
+HMRW 10 fold=3 AUC=0.9872 AP=0.9872
+HMRW 10 fold=4 AUC=0.9866 AP=0.9888
+HMRW 10 fold=5 AUC=0.9954 AP=0.9964
+HMRW 10 fold=6 AUC=0.9869 AP=0.9865
