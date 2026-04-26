@@ -1,0 +1,47 @@
+
+===== start 2026-04-23T14:41:40.267841 =====
+data_name='NDC-substances-full' graph_path='../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt' test_ratio=0.1 n_splits=20
+Loading graph: /Users/lusineadunts/Documents/omms/Hilary/dissertation/www21-hyperlap-master/dataset/NDC-substances-full_graph.txt
+|V|= 3767  |E|= 6631
+Graph is disconnected; using largest connected component: |V| 3767 -> 3414, |E| 6631 -> 6471
+Loaded splits from results/NDC-substances-full/splits_10perc_20splits.pkl
+Already have 89 rows in results/NDC-substances-full/hedge_prediction_10perc_20splits_10nw_100wl.csv
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 0.5, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 0.5, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 4.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 2.0, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 2.0, 'gamma': -1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': -1.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 0.5, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 2.0, 'q': 0.5, 'r': 1.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 1.0, 'q': 4.0, 'r': 1.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 2.0, 'q': 2.0, 'r': 1.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 2.0, 'gamma': -1.0, 'delta': 0.0}
+skipping: {'p': 1.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': 0.0}
+skipping: {'p': 4.0, 'q': 1.0, 'r': 1.0, 'gamma': 1.0, 'delta': 0.0}
+Hyper2Vec 3 fold=2 AUC=0.9815 AP=0.9852
+Hyper2Vec 3 fold=3 AUC=0.9832 AP=0.9826
+Hyper2Vec 3 fold=4 AUC=0.9822 AP=0.9847
+Hyper2Vec 3 fold=5 AUC=0.9909 AP=0.9919
+Hyper2Vec 3 fold=6 AUC=0.9836 AP=0.9814
+Hyper2Vec 3 fold=7 AUC=0.9818 AP=0.9747
+Hyper2Vec 3 fold=8 AUC=0.9813 AP=0.9758
+Hyper2Vec 3 fold=9 AUC=0.9843 AP=0.9865
+Hyper2Vec 3 fold=10 AUC=0.9748 AP=0.9745
+Hyper2Vec 3 fold=11 AUC=0.9887 AP=0.9896
+Hyper2Vec 3 fold=12 AUC=0.9901 AP=0.9919
+Hyper2Vec 3 fold=13 AUC=0.9841 AP=0.9825
+Hyper2Vec 3 fold=14 AUC=0.9896 AP=0.9886
+Hyper2Vec 3 fold=15 AUC=0.9827 AP=0.9837
+Hyper2Vec 3 fold=16 AUC=0.9819 AP=0.9802
+Hyper2Vec 3 fold=17 AUC=0.9830 AP=0.9792
+Hyper2Vec 3 fold=18 AUC=0.9870 AP=0.9855
+Hyper2Vec 3 fold=19 AUC=0.9855 AP=0.9850
+Hyper2Vec 4 fold=0 AUC=0.9815 AP=0.9830
+Hyper2Vec 4 fold=1 AUC=0.9799 AP=0.9788
+Hyper2Vec 4 fold=2 AUC=0.9803 AP=0.9845

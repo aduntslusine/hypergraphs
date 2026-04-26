@@ -38,3 +38,7 @@ Hyper2Vec 2 fold=14 AUC=0.9887 AP=0.9891
 Hyper2Vec 2 fold=15 AUC=0.9830 AP=0.9853
 Hyper2Vec 2 fold=16 AUC=0.9847 AP=0.9815
 Hyper2Vec 2 fold=17 AUC=0.9819 AP=0.9797
+Hyper2Vec 2 fold=18 AUC=0.9877 AP=0.9867
+Hyper2Vec 2 fold=19 AUC=0.9876 AP=0.9866
+Hyper2Vec 3 fold=0 AUC=0.9836 AP=0.9836
+Hyper2Vec 3 fold=1 AUC=0.9788 AP=0.9770

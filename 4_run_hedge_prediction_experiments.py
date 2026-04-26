@@ -1,21 +1,3 @@
-"""
-Hyperedge prediction: build splits, run HMRW + Hyper2Vec, save CSV (append + resume).
-
-Example:
-  from run_hedge_prediction_experiments import run_hedge_prediction
-
-  run_hedge_prediction(
-      "contact_primary",
-      "../www21-hyperlap-master/dataset/contact-primary_graph.txt",
-      log_path="results/contact_primary/my_run.log",  # optional: mirror prints to file
-  )
-  run_hedge_prediction("threads_math", "path/to/graph.txt", test_ratio=0.1, n_splits=20)
-
-  # Or from repo root:
-  #   python run_hedge_prediction_experiments.py
-  # (runs contact-primary; see bottom of this file.)
-"""
-
 import pickle
 import sys
 from datetime import datetime
@@ -29,11 +11,10 @@ from src.hypergraph_train_test_split import (
     generate_negative_hyperedges,
     split_hypergraph_train_test,
 )
-from src.utils import hmrw_embeddings, hyper2vec_embeddings
+from src.walks import hmrw_embeddings, hyper2vec_embeddings
 
 NUM_WALKS = 10
 WALK_LENGTH = 100
-# WALK_LENGTH = 50
 DIM = 128
 
 CONFIGS_HMRW = [
@@ -246,8 +227,6 @@ def run_hedge_prediction(
         if dlt != 0.0:
             print(f"skipping: {cfg}")
             continue
-        print(f"skipping: {cfg}")
-        continue
         for sp in splits:
             fold, seed = sp["fold"], sp["split_seed"]
             k = resume_key(
@@ -425,14 +404,3 @@ if __name__ == "__main__":
         "../www21-hyperlap-master/dataset/NDC-substances-full_graph.txt",
         log_path=Path("results") / "NDC-substances-full" / f"run_{_ts}.log",
     )
-    # run_hedge_prediction(
-    #     "tags-math",
-    #     "../www21-hyperlap-master/dataset/tags-math_graph.txt",
-    #     log_path=Path("results") / "tags-math" / f"run_{_ts}.log", test_ratio = 0.01
-    # )
-    # run_hedge_prediction(
-    #     "tags-ubuntu",
-    #     "../www21-hyperlap-master/dataset/tags-ubuntu_graph.txt",
-    #     log_path=Path("results") / "tags-ubuntu" / f"run_{_ts}.log", test_ratio = 0.01
-    # )
-
