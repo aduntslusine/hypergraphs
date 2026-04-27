@@ -6,35 +6,23 @@ from pathlib import Path
 import pandas as pd
 from hypergraphx import Hypergraph
 
-from src.hypergraph_train_test_split import (
+from src.hypergraph_split import (
     evaluate,
     generate_negative_hyperedges,
-    split_hypergraph_train_test,
+    split_hypergraph,
 )
 from src.walks import harw_embeddings, hyper2vec_embeddings
 
 NUM_WALKS = 10
-WALK_LENGTH = 100
 DIM = 128
 
 CONFIGS_HARW = [
-    # {"p": 1.0, "q": 1.0, "r": 1.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 0.5, "q": 2.0, "r": 1.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 2.0, "q": 0.5, "r": 1.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 4.0, "q": 1.0, "r": 1.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 1.0, "q": 4.0, "r": 1.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 2.0, "q": 2.0, "r": 1.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 1.0, "q": 1.0, "r": 2.0, "gamma": -1.0, "delta": -1.0},
-    # {"p": 1.0, "q": 1.0, "r": 1.0, "gamma": 1.0, "delta": -1.0},
-    # {"p": 4.0, "q": 1.0, "r": 1.0, "gamma": 1.0, "delta": -1.0},
-    
     {"p": 1.0, "q": 1.0, "r": 1.0, "gamma": -1.0, "delta": 0.0},
     {"p": 0.5, "q": 2.0, "r": 1.0, "gamma": -1.0, "delta": 0.0},
     {"p": 2.0, "q": 0.5, "r": 1.0, "gamma": -1.0, "delta": 0.0},
     {"p": 4.0, "q": 1.0, "r": 1.0, "gamma": -1.0, "delta": 0.0},
     {"p": 1.0, "q": 4.0, "r": 1.0, "gamma": -1.0, "delta": 0.0},
     {"p": 2.0, "q": 2.0, "r": 1.0, "gamma": -1.0, "delta": 0.0},
-    {"p": 1.0, "q": 1.0, "r": 2.0, "gamma": -1.0, "delta": 0.0},
     {"p": 1.0, "q": 1.0, "r": 1.0, "gamma": 1.0, "delta": 0.0},
     {"p": 4.0, "q": 1.0, "r": 1.0, "gamma": 1.0, "delta": 0.0},
 ]
@@ -50,10 +38,7 @@ CONFIGS_H2V = [
 
 R_H2V = 0.0
 
-
 class _TeeStdout:
-    """Send stdout to the terminal and to a log file."""
-
     def __init__(self, *streams):
         self.streams = streams
 
@@ -101,12 +86,6 @@ def run_hedge_prediction(
     force_splits: bool = False,
     log_path: str | Path | None = None,
 ) -> Path:
-    """
-    Run the full pipeline for one dataset. Results go under results/<data_name>/.
-    Returns the path to the results CSV.
-
-    If log_path is set, prints are copied to that file (append mode).
-    """
     log_fp = None
     old_out = sys.stdout
     if log_path is not None:
@@ -136,7 +115,6 @@ def run_hedge_prediction(
     n_edges_before = len(H.get_edges())
     print("|V|=", n_nodes_before, " |E|=", n_edges_before)
 
-    # Ensure we run on the largest connected component when the input is disconnected.
     largest_nodes = set(H.largest_component())
     is_connected = len(largest_nodes) == n_nodes_before
     if not is_connected:
@@ -149,22 +127,16 @@ def run_hedge_prediction(
             f"|E| {n_edges_before} -> {n_edges_after}"
         )
 
-    # --- splits: load or build ---
     splits = None
     if pkl_path.exists() and not force_splits:
         bundle = pickle.loads(pkl_path.read_bytes())
-        if (
-            bundle.get("dataset_path") == graph_arg
-            and bundle.get("test_ratio") == test_ratio
-            and bundle.get("split_seeds") == seeds
-        ):
-            splits = bundle["splits"]
-            print("Loaded splits from", pkl_path)
+        splits = bundle["splits"]
+        print("Loaded splits from", pkl_path)
 
     if splits is None:
         splits = []
         for fold, seed in enumerate(seeds):
-            H_tr, test_e = split_hypergraph_train_test(H, test_ratio, seed)
+            H_tr, test_e = split_hypergraph(H, test_ratio, seed)
             neg_e = generate_negative_hyperedges(H, test_e, seed)
             nodes_tr = sorted(H_tr.get_nodes())
             splits.append(
@@ -195,7 +167,6 @@ def run_hedge_prediction(
         )
         print("Saved splits to", pkl_path)
 
-    # --- which runs are already in the csv? ---
     done = set()
     if csv_path.exists():
         old = pd.read_csv(csv_path)
@@ -222,12 +193,8 @@ def run_hedge_prediction(
             )
     print("Already have", len(done), "rows in", csv_path)
 
-    # --- HARW ---
     for i, cfg in enumerate(CONFIGS_HARW):
         dlt = cfg["delta"]
-        if dlt != 0.0:
-            print(f"skipping: {cfg}")
-            continue
         for sp in splits:
             fold, seed = sp["fold"], sp["split_seed"]
             k = resume_key(
@@ -284,7 +251,6 @@ def run_hedge_prediction(
             done.add(k)
             print(f"HARW {i} fold={fold} AUC={auc:.4f} AP={ap:.4f}")
 
-    # --- Hyper2Vec ---
     nan = float("nan")
     for i, cfg in enumerate(CONFIGS_H2V):
         for sp in splits:
@@ -341,7 +307,6 @@ def run_hedge_prediction(
             done.add(k)
             print(f"Hyper2Vec {i} fold={fold} AUC={auc:.4f} AP={ap:.4f}")
 
-    # --- mean columns ---
     if csv_path.exists():
         df = pd.read_csv(csv_path)
         m = df.groupby(
@@ -354,11 +319,14 @@ def run_hedge_prediction(
         
         id_cols = ['method', 'config_id', 'p', 'q', 'r', 'gamma', 'delta', 'num_walks', 'walk_length', 'dim']
         means = df.groupby(id_cols, dropna=False, as_index=False).agg(auc=('auc', 'mean'), ap=('ap', 'mean'))
-        wide = df.pivot_table(index=id_cols, columns='fold', values=['auc', 'ap'], aggfunc='first')
+        wide = (
+            df.groupby(id_cols + ['fold'], dropna=False)[['auc', 'ap']]
+            .first()
+            .unstack('fold')
+        )
         wide.columns = [f'{a}_fold{int(b)}' for a, b in wide.columns]
         wide = wide.reset_index()
         df_wide = means.merge(wide, on=id_cols, how='left')
-        
         df_wide.to_csv(csv_wide_path, index=False)
         
 

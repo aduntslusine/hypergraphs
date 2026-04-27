@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import random
 
 import numpy as np
@@ -7,12 +5,7 @@ from hypergraphx import Hypergraph
 from sklearn.metrics import average_precision_score, roc_auc_score
 
 
-def split_hypergraph_train_test(
-    H: Hypergraph,
-    test_ratio: float,
-    seed: int,
-) -> tuple[Hypergraph, list]:
-    """Split edges into train and held-out test under simple constraints."""
+def split_hypergraph(H, test_ratio, seed):
     rng = random.Random(seed)
 
     edges = list(H.get_edges())
@@ -26,7 +19,7 @@ def split_hypergraph_train_test(
         print(f"Achieved test ratio: 0.0 (target was 0 of {num_edges} edges)")
         return Hypergraph(edges[:]), []
 
-    def collect_test_edges(require_connected: bool) -> None:
+    def collect_test_edges(require_connected):
         nonlocal working_edges, test_edges
         order = working_edges[:]
         rng.shuffle(order)
@@ -67,10 +60,10 @@ def split_hypergraph_train_test(
 
 
 def generate_negative_hyperedges(
-    H_full: Hypergraph,
-    test_edges: list,
-    seed: int,
-) -> list:
+    H_full,
+    test_edges,
+    seed,
+):
     real_edges = {frozenset(e) for e in H_full.get_edges()}
     all_nodes = list(H_full.get_nodes())
     rng = random.Random(seed)
@@ -95,9 +88,7 @@ def generate_negative_hyperedges(
             break
 
         if not found:
-            raise RuntimeError(
-                f"Could not sample a valid negative hyperedge of size {k} after 1000 retries."
-            )
+            raise RuntimeError(f"Could not sample a valid negative hyperedge of size {k}.")
 
     return negatives
 

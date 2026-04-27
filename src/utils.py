@@ -6,7 +6,6 @@ from hypergraphx import Hypergraph
 
 
 def hyperedge_homogeneity_list(H):
-    """Return homogeneity score per hyperedge based on pair co-occurrence."""
     edges = [list(e) for e in H.get_edges()]
 
     pair_degree = {}
@@ -30,10 +29,6 @@ def hyperedge_homogeneity_list(H):
 
 
 def hypergraph_disjointness(H):
-    """
-    Fraction of hyperedge pairs that overlap in more than one node.
-    Higher values indicate stronger disjointness violations.
-    """
     edges = [set(e) for e in H.get_edges()]
 
     overlapping = 0
@@ -49,7 +44,7 @@ def hypergraph_disjointness(H):
     return overlapping / total
 
 
-def load_txt(path: str | Path) -> Hypergraph:
+def load_txt(path):
     edges = []
     with open(path) as f:
         for line in f:
@@ -61,18 +56,16 @@ def load_txt(path: str | Path) -> Hypergraph:
 
 
 def analyze_transition_cases_with_selection(
-    H: Hypergraph,
-    *,
-    walk_length: int = 40,
-    num_walks: int = 10,
-    p: float = 1.0,
-    q: float = 1.0,
-    r: float = 1.0,
-    gamma: float = -1.0,
-    delta: float = 0.0,
-    seed: int = 0,
-) -> dict:
-    """Return selection and availability case counts for one (p, q) run."""
+    H,
+    walk_length=40,
+    num_walks=10,
+    p=1.0,
+    q=1.0,
+    r=1.0,
+    gamma=-1.0,
+    delta=0.0,
+    seed=0,
+):
     nodes = sorted(H.get_nodes())
     edges = [frozenset(e) for e in H.get_edges()]
     n = len(nodes)
@@ -103,7 +96,7 @@ def analyze_transition_cases_with_selection(
                 if not cand_e:
                     continue
 
-                def classify_case(e2_i: int) -> str:
+                def classify_case(e2_i):
                     if prev_e_i is None or prev_u_i is None:
                         return "middle"
                     if e2_i == prev_e_i:
@@ -170,7 +163,7 @@ def analyze_transition_cases_with_selection(
     }
 
 
-def theoretical_case_values(H: Hypergraph) -> np.ndarray:
+def theoretical_case_values(H):
     degsum = 0.0
     for deg, cnt in H.degree_distribution().items():
         degsum += deg * cnt
@@ -186,17 +179,16 @@ def theoretical_case_values(H: Hypergraph) -> np.ndarray:
 
 
 def empirical_availability_values(
-    H: Hypergraph,
-    seed: int = 42,
-    *,
-    walk_length: int = 20,
-    num_walks: int = 50,
-    p: float = 1.0,
-    q: float = 1.0,
-    r: float = 1.0,
-    gamma: float = 0.0,
-    delta: float = 0.0,
-) -> np.ndarray:
+    H,
+    seed=42,
+    walk_length=20,
+    num_walks=50,
+    p=1.0,
+    q=1.0,
+    r=1.0,
+    gamma=0.0,
+    delta=0.0,
+):
     out = analyze_transition_cases_with_selection(
         H,
         walk_length=walk_length,
